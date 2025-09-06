@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AFGAN Store</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" type="image/png" href="images/favicon.png" />
+        <style>
+            /* Дополнительные стили для прямоугольной иконки */
+            .logo-icon {
+                border-radius: 12px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-icon:hover {
+                transform: scale(1.05) rotate(2deg);
+                box-shadow: 0 6px 20px rgba(103, 80, 164, 0.4);
+            }
+
+            .logo-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .logo-fallback {
+                display: none; /* Скрываем иконку телефона */
+            }
+
+            /* Убираем FAB кнопку */
+            .fab {
+                display: none !important;
+            }
+
+            /* Улучшаем внешний вид иконок в header */
+            .header-actions button {
+                border-radius: 12px;
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+
+            .header-actions button:hover {
+                background-color: var(--primary-container);
+                transform: translateY(-2px);
+            }
+
+            /* Круглая кнопка Telegram */
+            .telegram-link {
+                border-radius: 50% !important;
+                width: 50px !important;
+                height: 50px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                background: linear-gradient(
+                    135deg,
+                    #0088cc,
+                    #00a8e8
+                ) !important;
+                color: white !important;
+                text-decoration: none !important;
+                transition: all 0.3s ease !important;
+                box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3) !important;
+            }
+
+            .telegram-link:hover {
+                transform: translateY(-3px) scale(1.1) !important;
+                box-shadow: 0 8px 20px rgba(0, 136, 204, 0.4) !important;
+                background: linear-gradient(
+                    135deg,
+                    #0077b5,
+                    #0099d8
+                ) !important;
+            }
+
+            .telegram-link i {
+                font-size: 1.5rem !important;
+            }
+
+            /* Улучшаем внешний вид остальных социальных иконок */
+            .social-link {
+                border-radius: 12px;
+                transition: all 0.3s ease;
+            }
+
+            .social-link:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Скрываем кнопку меню по умолчанию */
+            .mobile-menu-toggle {
+                display: none;
+            }
+
+            /* Стили для растянутого фона на мобильных */
+            @media (max-width: 768px) {
+                .hero-image {
+                    background: url("images/phonescreen.jpg") center/cover
+                        no-repeat !important;
+                    filter: blur(5px) brightness(0.6) !important;
+                }
+
+                .phone-mockup {
+                    display: none !important;
+                }
+
+                .hero-content {
+                    text-align: center;
+                    padding: 20px;
+                }
+
+                .hero-actions {
+                    justify-content: center;
+                }
+            }
+
+            /* Показываем кнопку меню только на мобильных устройствах */
+            @media (max-width: 992px) {
+                .mobile-menu-toggle {
+                    display: flex;
+                }
+
+                .desktop-nav {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <img
+                                src="images/favicon.png"
+                                alt="AFGAN Store"
+                                class="logo-image"
+                                onerror="this.style.display='none';"
+                            />
+                            <div class="logo-fallback">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                        </div>
+                        <h1 data-lang="site_title">AFGAN Store</h1>
+                    </div>
+                    <nav class="desktop-nav">
+                        <ul>
+                            <li>
+                                <a
+                                    href="#home"
+                                    class="nav-link"
+                                    data-lang="nav_home"
+                                    >Главная</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#products"
+                                    class="nav-link"
+                                    data-lang="nav_products"
+                                    >Товары</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#about"
+                                    class="nav-link"
+                                    data-lang="nav_about"
+                                    >О нас</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#contact"
+                                    class="nav-link"
+                                    data-lang="nav_contact"
+                                    >Контакты</a
+                                >
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header-actions">
+                        <button id="theme-toggle" class="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="wishlist-toggle" id="wishlist-toggle">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button id="cart-toggle" class="cart-toggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count">0</span>
+                        </button>
+                        <button class="mobile-menu-toggle">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="mobile-nav">
+                <ul>
+                    <li>
+                        <a href="#home" class="nav-link" data-lang="nav_home"
+                            >Главная</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#products"
+                            class="nav-link"
+                            data-lang="nav_products"
+                            >Товары</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#about" class="nav-link" data-lang="nav_about"
+                            >О нас</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#contact"
+                            class="nav-link"
+                            data-lang="nav_contact"
+                            >Контакты</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-background">
+                    <div class="hero-image"></div>
+                    <div class="hero-overlay"></div>
+                    <div class="hero-shape shape-1"></div>
+                    <div class="hero-shape shape-2"></div>
+                    <div class="hero-shape shape-3"></div>
+                </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h2 class="hero-title" data-lang="hero_title">
+                            Инновационные технологии
+                            <span
+                                class="text-gradient"
+                                data-lang="hero_title_highlight"
+                                >в каждом устройстве</span
+                            >
+                        </h2>
+                        <p class="hero-subtitle" data-lang="hero_subtitle">
+                            Откройте для себя мир передовой электроники с AFGAN
+                            Store
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#products" class="btn btn-primary">
+                                <span data-lang="hero_button_products"
+                                    >К покупкам</span
+                                >
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#about" class="btn btn-secondary">
+                                <span data-lang="hero_button_about"
+                                    >Узнать больше</span
+                                >
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="screen-content">
+                                    <div class="app-icons">
+                                        <div class="app-icon"></div>
+                                        <div class="app-icon"></div>
+                                        <div class="app-icon"></div>
+                                        <div class="app-icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="products" class="products">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title" data-lang="section_products">
+                            Наши товары
+                        </h2>
+                        <p
+                            class="section-subtitle"
+                            data-lang="section_products_subtitle"
+                        >
+                            Широкий выбор качественной электроники для каждого
+                        </p>
+                    </div>
+                    <div class="product-filters" id="product-filters">
+                        <!-- Фильтры будут добавлены автоматически через JavaScript -->
+                    </div>
+                    <div class="product-grid" id="product-container"></div>
+                </div>
+            </section>
+
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title" data-lang="section_about">
+                            О нас
+                        </h2>
+                        <p
+                            class="section-subtitle"
+                            data-lang="section_about_subtitle"
+                        >
+                            Почему клиенты выбирают именно нас
+                        </p>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p data-lang="about_text_1">
+                                AFGAN Store - это современный магазин
+                                электроники, где инновации встречаются с
+                                доступностью. Мы тщательно отбираем каждый
+                                продукт, чтобы предложить нашим клиентам только
+                                лучшее.
+                            </p>
+                            <p data-lang="about_text_2">
+                                Наша миссия - сделать передовые технологии
+                                доступными для каждого, обеспечивая при этом
+                                высочайший уровень сервиса и поддержки.
+                            </p>
+                        </div>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <h3>20+</h3>
+                                <p data-lang="stat_years">Лет на рынке</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>1000+</h3>
+                                <p data-lang="stat_customers">
+                                    Довольных клиентов
+                                </p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h3>24/7</h3>
+                                <p data-lang="stat_support">Поддержка</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title" data-lang="section_contact">
+                            Контакты
+                        </h2>
+                        <p
+                            class="section-subtitle"
+                            data-lang="section_contact_subtitle"
+                        >
+                            Свяжитесь с нами любым удобным способом
+                        </p>
+                    </div>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <h3 data-lang="contact_title">Свяжитесь с нами</h3>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <p>Кабул (Афганистан), ул. Карте-Сей, 15</p>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <p>+93 70 228 4729</p>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <p>afagpstore@gmail.com</p>
+                            </div>
+                            <div class="social-links">
+                                <a
+                                    href="https://t.me/afganstore_bot"
+                                    class="social-link telegram-link"
+                                    title="Написать в Telegram"
+                                    ><img
+                                        src="images/tg.png"
+                                        height="50px"
+                                        width="50px"
+                                    />
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <h3 data-lang="contact_form_title">
+                                Оставьте сообщение
+                            </h3>
+                            <form id="contact-form">
+                                <div class="input-group">
+                                    <input
+                                        type="text"
+                                        placeholder=" "
+                                        required
+                                    />
+                                    <label data-lang="contact_form_name"
+                                        >Ваше имя</label
+                                    >
+                                </div>
+                                <div class="input-group">
+                                    <input
+                                        type="email"
+                                        placeholder=" "
+                                        required
+                                    />
+                                    <label data-lang="contact_form_email"
+                                        >Ваш email</label
+                                    >
+                                </div>
+                                <div class="input-group">
+                                    <textarea
+                                        placeholder=" "
+                                        required
+                                    ></textarea>
+                                    <label data-lang="contact_form_message"
+                                        >Ваше сообщение</label
+                                    >
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <span data-lang="contact_form_button"
+                                        >Отправить</span
+                                    >
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="cart-overlay" id="cart-overlay">
+            <div class="cart-container">
+                <div class="cart">
+                    <div class="cart-header">
+                        <h3 data-lang="cart_title">Ваша корзина</h3>
+                        <button id="close-cart" class="close-cart">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="cart-content" id="cart-content">
+                        <p class="empty-cart" data-lang="cart_empty">
+                            Ваша корзина пуста
+                        </p>
+                    </div>
+                    <div class="cart-footer">
+                        <div class="cart-total">
+                            <h4 data-lang="cart_total">
+                                Итого: <span id="cart-total">0</span> ₽
+                            </h4>
+                        </div>
+                        <button class="btn btn-primary checkout-btn">
+                            <span data-lang="cart_checkout"
+                                >Оформить заказ</span
+                            >
+                            <i class="fas fa-shopping-bag"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="logo">
+                            <div class="logo-icon">
+                                <img
+                                    src="images/favicon.png"
+                                    alt="AFGAN Store"
+                                    class="logo-image"
+                                    onerror="this.style.display='none';"
+                                />
+                                <div class="logo-fallback">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                            </div>
+                            <h3 data-lang="site_title">AFGAN Store</h3>
+                        </div>
+                        <p data-lang="footer_description">
+                            Лучшие смартфоны по лучшим ценам. Инновации и
+                            качество в каждом устройстве.
+                        </p>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-lang="footer_menu">Меню</h3>
+                        <ul>
+                            <li>
+                                <a href="#home" data-lang="nav_home">Главная</a>
+                            </li>
+                            <li>
+                                <a href="#products" data-lang="nav_products"
+                                    >Товары</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#about" data-lang="nav_about">О нас</a>
+                            </li>
+                            <li>
+                                <a href="#contact" data-lang="nav_contact"
+                                    >Контакты</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 data-lang="footer_contacts">Контакты</h3>
+                        <p>afagpstore@gmail.com</p>
+                        <p>+93 70 228 4729</p>
+                        <div class="social-links">
+                            <a
+                                href="https://t.me/afganstore_bot"
+                                class="social-link telegram-link"
+                                title="Написать в Telegram"
+                                ><img
+                                    src="images/tg.png"
+                                    height="50px"
+                                    width="50px"
+                                />
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>
+                        &copy; 2025 AFGAN Store.
+                        <span data-lang="footer_rights"
+                            >Все права защищены.</span
+                        >
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="lang.js"></script>
+        <script src="huy.js"></script>
+        <script src="products.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
