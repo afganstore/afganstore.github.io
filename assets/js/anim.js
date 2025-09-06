@@ -35,12 +35,62 @@ function showAlert(message) {
     alertOverlay.classList.add("active");
     document.querySelector(".alert-box")?.classList.add("active");
   }, 10);
+
+  // Центрируем кнопку OK
+  const okButton = document.querySelector(".alert-ok");
+  if (okButton) {
+    okButton.style.display = "block";
+    okButton.style.margin = "0 auto";
+    okButton.style.marginTop = "20px";
+  }
+
   document.querySelector(".alert-ok")?.addEventListener("click", function () {
     alertOverlay.classList.remove("active");
     document.querySelector(".alert-box")?.classList.remove("active");
     setTimeout(() => {
       alertOverlay.remove();
     }, 300);
+  });
+}
+
+// Плавный скролл к началу страницы
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+// Пасхалка при удерживании логотипа или надписи магазина
+function setupEasterEgg() {
+  const logoIcon = document.querySelector(".logo-icon");
+  const logoText = document.querySelector(".logo h1");
+
+  if (!logoIcon && !logoText) return;
+
+  const elements = [logoIcon, logoText].filter((el) => el !== null);
+
+  elements.forEach((element) => {
+    let pressTimer;
+
+    element.addEventListener("mousedown", () => {
+      pressTimer = setTimeout(() => {
+        const message =
+          translations[currentLang].easter_egg ||
+          "Ты нашёл секретную пасхалку!";
+        const audio = new Audio("assets/sounds/pixel6.mp3");
+        audio.play();
+        showAlert(message);
+      }, 1000);
+    });
+
+    element.addEventListener("mouseup", () => {
+      clearTimeout(pressTimer);
+    });
+
+    element.addEventListener("mouseleave", () => {
+      clearTimeout(pressTimer);
+    });
   });
 }
 
@@ -65,6 +115,21 @@ document.addEventListener("DOMContentLoaded", () => {
       this.style.transform = "translateY(0)";
     });
   });
+
+  // Устанавливаем пасхалку для логотипа и текста
+  setupEasterEgg();
+
+  // Вешаем обработчик на логотип и текст для скролла вверх
+  const logoIcon = document.querySelector(".logo-icon");
+  const logoText = document.querySelector(".logo h1");
+
+  if (logoIcon) {
+    logoIcon.addEventListener("click", scrollToTop);
+  }
+
+  if (logoText) {
+    logoText.addEventListener("click", scrollToTop);
+  }
 });
 
 // Запуск анимаций при загрузке страницы

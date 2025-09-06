@@ -69,7 +69,7 @@ const products = [
     name: "Google Pixel 7",
     description: "Обновленный дизайн и улучшенный Tensor G2",
     price: 69990,
-    image: "pixel7.jpg",
+    image: "pixel7.jpeg",
     category: "pixel",
   },
   {

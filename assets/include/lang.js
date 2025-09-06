@@ -54,6 +54,7 @@ const translations = {
     error_form: "Форма не отправлена. Пошел нахуй.",
     search_placeholder: "Поиск по хуйне...",
     no_results: "Ничего не найдено. Иди нахуй.",
+    easter_egg: "Пошел нахуй блять",
   },
   en: {
     site_title: "AFGAN Store",
