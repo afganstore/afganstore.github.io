@@ -1,0 +1,124 @@
+/* Адаптивность для мелких экранов */
+@media (max-width: 576px) {
+    /* Header */
+    .header-content {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .desktop-nav {
+        display: none !important;
+    }
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+    /* Карточки товаров */
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    .product-card {
+        margin: 0 auto;
+    }
+    /* Корзина */
+    .cart-overlay {
+        padding: 0;
+    }
+    .cart-container {
+        border-radius: 0;
+        max-height: 100vh;
+    }
+    /* Футер */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+/* Адаптивность для средних экранов */
+@media (min-width: 577px) and (max-width: 767px) {
+    /* Карточки товаров */
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    /* Корзина */
+    .cart-container {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+/* Адаптивность для hero */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-visual {
+        display: none;
+    }
+    .hero-content {
+        text-align: center;
+        padding: 20px;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    .mobile-menu-toggle {
+        display: block;
+    }
+    .desktop-nav {
+        display: none;
+    }
+}
+
+/* Адаптивность для корзины */
+@media (max-width: 768px) {
+    .cart-header {
+        padding: 0.75rem 1rem !important;
+    }
+    .cart-content {
+        padding: 0.75rem 1rem !important;
+    }
+    .cart-footer {
+        padding: 0.75rem 1rem !important;
+    }
+    .cart-total h4 {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Адаптивность для карточек */
+@media (max-width: 768px) {
+    .product-actions {
+        flex-direction: row;
+    }
+    .add-to-cart {
+        margin-right: 0;
+        font-size: 0.9rem;
+        padding: var(--spacing-xs);
+    }
+    .wishlist {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+}
+
+/* Адаптивность для социальных ссылок */
+@media (max-width: 768px) {
+    .social-links {
+        justify-content: center;
+    }
+    .social-link {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}

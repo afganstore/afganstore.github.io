@@ -14,8 +14,63 @@
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700;800&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="assets/css/styles.css" />
-        <link rel="icon" type="image/png" href="assets/images/favicon.png">
+        <link rel="stylesheet" href="assets/css/variables.css" />
+        <link rel="stylesheet" href="assets/css/header.css" />
+        <link rel="stylesheet" href="assets/css/hero.css" />
+        <link rel="stylesheet" href="assets/css/products.css" />
+        <link rel="stylesheet" href="assets/css/about.css" />
+        <link rel="stylesheet" href="assets/css/contact.css" />
+        <link rel="stylesheet" href="assets/css/cart.css" />
+        <link rel="stylesheet" href="assets/css/footer.css" />
+        <link rel="stylesheet" href="assets/css/animations.css" />
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+        <link rel="stylesheet" href="assets/css/misc.css" />
+        <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+        <!-- OpenGraph мета-теги -->
+        <meta
+            property="og:title"
+            content="AFGAN Store - Неинновационные технологии в каждом устройстве"
+        />
+        <meta
+            property="og:description"
+            content="Откройте для себя мир старой электроники с AFGAN Store. Узкий выбор не качественной электроники для каждого."
+        />
+        <meta property="og:url" content="https://ваш-сайт.ru" />
+        <meta
+            property="og:image"
+            content="https://afagp.store/assets/images/favicon.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="AFGAN Store" />
+
+        <!-- Twitter Card мета-теги -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="AFGAN Store - Неинновационные технологии в каждом устройстве"
+        />
+        <meta
+            name="twitter:description"
+            content="Откройте для себя мир старой электроники с AFGAN Store. Узкий выбор не качественной электроники для каждого."
+        />
+        <meta
+            name="twitter:image"
+            content="https://afagp.store/assets/images/favicon.png"
+        />
+        <script>
+            // Установка OpenGraph URL
+            document.addEventListener("DOMContentLoaded", function () {
+                const ogUrlMeta = document.querySelector(
+                    'meta[property="og:url"]',
+                );
+                if (ogUrlMeta) {
+                    ogUrlMeta.setAttribute(
+                        "content",
+                        window.siteConfig.baseUrl + window.location.pathname,
+                    );
+                }
+            });
+        </script>
     </head>
     <body>
         <header class="header">
@@ -361,12 +416,15 @@
                 </div>
             </section>
         </main>
+        <!-- Корзина -->
         <div class="cart-overlay" id="cart-overlay">
             <div class="cart-container">
                 <div class="cart">
                     <div class="cart-header">
-                        <h3 data-translate="cart_title">Ваша корзина</h3>
-                        <button id="close-cart" class="close-cart">
+                        <h3 class="cart-title" data-translate="cart_title">
+                            Ваша корзина
+                        </h3>
+                        <button class="close-cart" id="close-cart">
                             &times;
                         </button>
                     </div>
@@ -377,7 +435,8 @@
                                 Ваша корзина пуста
                             </p>
                             <button
-                                class="btn btn-primary continue-shopping"
+                                class="btn continue-shopping-btn"
+                                id="continue-shopping-btn"
                                 data-translate="cart_continue_shopping"
                             >
                                 Продолжить покупки
@@ -385,11 +444,16 @@
                         </div>
                     </div>
                     <div class="cart-footer">
-                        <h1 class="cart-total">
-                            <span data-translate="cart_total">Итого:</span>
-                            <span id="cart-total">0</span> ₽
-                        </h1>
-                        <button class="btn btn-primary checkout-btn">
+                        <div class="cart-total" id="cart-total">
+                            <h4>
+                                <span data-translate="cart_total">Итого:</span>
+                                <span>0</span> ₽
+                            </h4>
+                        </div>
+                        <button
+                            class="btn btn-primary checkout-btn"
+                            id="checkout-btn"
+                        >
                             <span data-translate="cart_checkout"
                                 >Оформить заказ</span
                             >
@@ -399,6 +463,7 @@
                 </div>
             </div>
         </div>
+
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
@@ -472,7 +537,7 @@
                     <p>
                         &copy; 2025 AFGAN Store.
                         <span data-translate="footer_rights"
-                            >Все права защищены.</span
+                            >Все права съел Еша.</span
                         >
                     </p>
                     <p>created by @esha5minutes</p>
@@ -487,5 +552,8 @@
         <script src="assets/js/cart.js"></script>
         <script src="assets/js/filters.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="assets/include/conf.js"></script>
+        <script src="assets/include/adblock.js"></script>
+        <script src="assets/js/checkInstall.js"></script>
     </body>
 </html>

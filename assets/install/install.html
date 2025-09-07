@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title data-translate="site_title">AFGAN Store - Установка</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/variables.css" />
+        <link rel="stylesheet" href="../css/header.css" />
+        <link rel="stylesheet" href="../css/footer.css" />
+        <link rel="stylesheet" href="../css/animations.css" />
+        <link rel="stylesheet" href="../css/misc.css" />
+        <link rel="stylesheet" href="../css/responsive.css" />
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+        <!-- OpenGraph мета-теги -->
+        <meta property="og:title" content="Установка AFGAN Store" />
+        <meta property="og:description" content="Установка AFGAN Store" />
+        <meta property="og:url" content="https://afagp.store" />
+        <meta property="og:image" content="../images/favicon.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="AFGAN Store" />
+        <!-- Twitter Card мета-теги -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Установка AFGAN Store" />
+        <meta name="twitter:description" content="Установка AFGAN Store" />
+        <meta name="twitter:image" content="../images/favicon.png" />
+        <style>
+            .install-container {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: var(--spacing-xxl) var(--spacing-md);
+                text-align: center;
+                background-color: var(--surface);
+            }
+
+            .install-header {
+                margin-bottom: var(--spacing-xxl);
+            }
+
+            .install-header h1 {
+                font-size: 2.5rem;
+                margin-bottom: var(--spacing-md);
+                color: var(--on-surface);
+            }
+
+            .install-header p {
+                font-size: 1.1rem;
+                color: var(--on-surface-variant);
+            }
+
+            .install-guide {
+                background-color: var(--surface-variant);
+                padding: var(--spacing-xl);
+                border-radius: var(--radius-xl);
+                box-shadow: var(--dp02);
+                max-width: 600px;
+                width: 100%;
+                margin-bottom: var(--spacing-xl);
+            }
+
+            .install-guide h2 {
+                margin-bottom: var(--spacing-lg);
+                color: var(--on-surface);
+            }
+
+            .install-guide p {
+                margin-bottom: var(--spacing-md);
+                color: var(--on-surface-variant);
+            }
+
+            .install-guide a {
+                color: var(--primary);
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .install-guide a:hover {
+                text-decoration: underline;
+            }
+
+            .install-actions {
+                display: flex;
+                gap: var(--spacing-md);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .install-btn {
+                padding: var(--spacing-md) var(--spacing-lg);
+                border-radius: var(--radius-lg);
+                text-decoration: none;
+                font-weight: 500;
+                transition: var(--transition-medium);
+                border: none;
+                cursor: pointer;
+            }
+
+            .install-btn-primary {
+                background: linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--tertiary)
+                );
+                color: var(--on-primary);
+                box-shadow: var(--dp02);
+            }
+
+            .install-btn-primary:hover {
+                box-shadow: var(--dp04);
+                transform: translateY(-2px);
+            }
+
+            .install-btn-secondary {
+                background-color: var(--surface-variant);
+                color: var(--on-surface-variant);
+                border: 1px solid var(--outline-variant);
+            }
+
+            .install-btn-secondary:hover {
+                background-color: var(--surface);
+                border-color: var(--outline);
+            }
+
+            @media (max-width: 768px) {
+                .install-header h1 {
+                    font-size: 2rem;
+                }
+
+                .install-guide {
+                    padding: var(--spacing-lg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <img
+                                src="../images/favicon.png"
+                                alt="AFGAN Store"
+                                class="logo-image"
+                                onerror="this.style.display='none';"
+                            />
+                            <div class="logo-fallback">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                        </div>
+                        <h1 data-translate="site_title">AFGAN Store</h1>
+                    </div>
+                    <div class="header-actions">
+                        <button id="theme-toggle" class="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="install-container">
+                <div class="install-header">
+                    <h1 data-translate="site_title">AFGAN Store</h1>
+                    <p>Добро пожаловать в установщик AFGAN Store</p>
+                </div>
+                <div class="install-guide">
+                    <h2>Инструкция по установке</h2>
+                    <p>
+                        Чтобы завершить установку AFGAN Store, следуйте
+                        инструкциям ниже:
+                    </p>
+                    <ol>
+                        <li>
+                            Перейдите по
+                            <a
+                                href="https://github.com/afganstore/afganstore.github.io/wiki/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0"
+                                target="_blank"
+                                >ссылке на гайд по установке</a
+                            >.
+                        </li>
+                        <li>Следуйте шагам из руководства.</li>
+                        <li>После завершения установки обновите страницу.</li>
+                    </ol>
+                    <p>
+                        Если у вас возникли вопросы, обратитесь в
+                        <a href="https://t.me/afganstore_bot" target="_blank"
+                            >техническую поддержку</a
+                        >.
+                    </p>
+                </div>
+                <div class="install-actions">
+                    <a
+                        href="https://github.com/afganstore/afganstore.github.io/wiki/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0"
+                        target="_blank"
+                        class="install-btn install-btn-primary"
+                    >
+                        Перейти к гайду
+                    </a>
+                    <button
+                        class="install-btn install-btn-secondary"
+                        onclick="window.location.reload()"
+                    >
+                        Обновить страницу
+                    </button>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="logo">
+                            <div class="logo-icon">
+                                <img
+                                    src="../images/favicon.png"
+                                    alt="AFGAN Store"
+                                    class="logo-image"
+                                    onerror="this.style.display='none';"
+                                />
+                                <div class="logo-fallback">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                            </div>
+                            <h3 data-translate="site_title">AFGAN Store</h3>
+                        </div>
+                        <p data-translate="footer_description">
+                            Лучшие смартфоны по лучшим ценам. Инновации и
+                            качество в каждом устройстве.
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>
+                        &copy; 2025 AFGAN Store.
+                        <span data-translate="footer_rights"
+                            >Все права съел Еша.</span
+                        >
+                    </p>
+                    <p class="footer-created-by" id="footer-created-by"></p>
+                </div>
+            </div>
+        </footer>
+        <script src="../include/lang.js"></script>
+        <script src="../include/conf.js"></script>
+        <script src="../js/langSystem.js"></script>
+        <script src="../js/main.js"></script>
+        <script>
+            // Установка информации о создателе в футере
+            function setFooterCreatedBy() {
+                const createdByElement =
+                    document.getElementById("footer-created-by");
+                if (
+                    createdByElement &&
+                    window.siteConfig?.footer?.createdByText
+                ) {
+                    createdByElement.textContent =
+                        window.siteConfig.footer.createdByText;
+                }
+            }
+
+            // Переключение темы
+            function setTheme(theme) {
+                document.body.classList.remove("dark-theme", "light-theme");
+                document.body.classList.add(`${theme}-theme`);
+                localStorage.setItem("theme", theme);
+                const themeToggle = document.getElementById("theme-toggle");
+                if (theme === "dark") {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+
+            function toggleTheme() {
+                const currentTheme = localStorage.getItem("theme") || "light";
+                const newTheme = currentTheme === "light" ? "dark" : "light";
+                setTheme(newTheme);
+            }
+
+            // Инициализация
+            document.addEventListener("DOMContentLoaded", function () {
+                // Установка OpenGraph мета-тегов
+                if (window.siteConfig?.openGraph?.default) {
+                    const ogTitle = document.querySelector(
+                        'meta[property="og:title"]',
+                    );
+                    const ogDescription = document.querySelector(
+                        'meta[property="og:description"]',
+                    );
+                    const ogUrl = document.querySelector(
+                        'meta[property="og:url"]',
+                    );
+                    const ogImage = document.querySelector(
+                        'meta[property="og:image"]',
+                    );
+
+                    if (ogTitle)
+                        ogTitle.setAttribute(
+                            "content",
+                            window.siteConfig.openGraph.default.title,
+                        );
+                    if (ogDescription)
+                        ogDescription.setAttribute(
+                            "content",
+                            window.siteConfig.openGraph.default.description,
+                        );
+                    if (ogUrl)
+                        ogUrl.setAttribute(
+                            "content",
+                            window.siteConfig.baseUrl +
+                                window.location.pathname,
+                        );
+                    if (ogImage)
+                        ogImage.setAttribute(
+                            "content",
+                            window.siteConfig.baseUrl +
+                                "/assets/images/favicon.png",
+                        );
+                }
+
+                // Устанавливаем тему
+                const savedTheme = localStorage.getItem("theme") || "light";
+                setTheme(savedTheme);
+
+                // Вешаем обработчики
+                document
+                    .getElementById("theme-toggle")
+                    ?.addEventListener("click", toggleTheme);
+
+                // Установка информации о создателе в футере
+                setFooterCreatedBy();
+
+                // Инициализация мультиязычности
+                initLanguageSystem();
+            });
+        </script>
+    </body>
+</html>

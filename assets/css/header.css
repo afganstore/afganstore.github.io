@@ -1,0 +1,255 @@
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--surface);
+    box-shadow: var(--dp01);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 251, 254, 0.8);
+}
+
+.dark-theme .header {
+    background-color: rgba(28, 27, 31, 0.8);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--primary), var(--tertiary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--on-primary);
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 800;
+}
+
+.desktop-nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--on-surface);
+    font-weight: 500;
+    position: relative;
+    padding: var(--spacing-sm) 0;
+    transition: var(--transition-short);
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, var(--primary), var(--tertiary));
+    transition: var(--transition-short);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.theme-toggle,
+.wishlist-toggle,
+.cart-toggle,
+.mobile-menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--on-surface);
+    transition: var(--transition-short);
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover,
+.wishlist-toggle:hover,
+.cart-toggle:hover,
+.mobile-menu-toggle:hover {
+    background-color: var(--surface-variant);
+}
+
+.cart-toggle {
+    position: relative;
+}
+
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--primary);
+    color: var(--on-primary);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+.mobile-nav {
+    display: none;
+    background-color: var(--surface);
+    padding: var(--spacing-md) 0;
+    box-shadow: var(--dp02);
+}
+
+.mobile-nav.active {
+    display: block;
+}
+
+.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-md);
+}
+
+.mobile-nav ul li a {
+    text-decoration: none;
+    color: var(--on-surface);
+    font-weight: 500;
+    padding: var(--spacing-sm) 0;
+    display: block;
+}
+
+/* Улучшаем внешний вид иконок в header */
+.header-actions button {
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.header-actions button:hover {
+    background-color: var(--primary-container);
+    transform: translateY(-2px);
+}
+
+/* Анимация для иконки корзины */
+.cart-toggle {
+    transition: transform 0.3s ease;
+}
+
+.cart-toggle:active {
+    transform: scale(0.9);
+}
+
+/* Анимация для счетчика корзины */
+#cart-count {
+    transition: all 0.3s ease;
+}
+
+.cart-toggle:active #cart-count {
+    transform: scale(1.2);
+}
+
+/* Скрываем кнопку меню по умолчанию */
+.mobile-menu-toggle {
+    display: none;
+}
+
+/* Показываем кнопку меню только на мобильных устройствах */
+@media (max-width: 992px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    .desktop-nav {
+        display: none;
+    }
+}
+
+/* Стили для логотипа */
+.logo-icon {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logo-icon:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 6px 20px rgba(103, 80, 164, 0.4);
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-fallback {
+    display: none;
+}
+
+/* Анимация для логотипа */
+@keyframes logo-pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.logo-icon:hover .logo-image {
+    animation: logo-pulse 1s ease-in-out;
+}
+
+/* Адаптивность для логотипа */
+@media (max-width: 768px) {
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+}

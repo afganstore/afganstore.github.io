@@ -1,0 +1,32 @@
+/* Стили для скрытия рекламы */
+[data-adblock-hidden="true"] {
+    display: none !important;
+}
+
+/* Стили для обхода noscript */
+.noscript-bypass {
+    display: none !important;
+}
+
+/* Убираем FAB кнопку */
+.fab {
+    display: none !important;
+}
+
+/* Дополнительные стили для темной темы */
+.dark-theme .hero-image {
+    filter: blur(10px) brightness(0.4) !important;
+}
+
+.dark-theme .hero-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(103, 80, 164, 0.5),
+        rgba(125, 82, 96, 0.5)
+    ) !important;
+}
+
+/* Скрываем иконку при наведении на верхнюю часть */
+.header:hover .logo-icon {
+    opacity: 1;
+}

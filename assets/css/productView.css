@@ -1,0 +1,236 @@
+/* Стили для страницы просмотра продукта */
+.product-section {
+    padding: 80px 0 40px;
+    min-height: 100vh;
+}
+
+.product-view-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.product-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--on-background);
+    margin: 0;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.product-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .product-content {
+        flex-direction: row;
+    }
+
+    .product-images {
+        flex: 1;
+    }
+
+    .product-info {
+        flex: 1;
+    }
+}
+
+.product-images {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.product-main-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    box-shadow: var(--dp02);
+}
+
+.product-thumbnails {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.product-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.product-thumbnail.active {
+    border-color: var(--primary);
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product-description {
+    padding: 16px;
+    background-color: var(--surface);
+    border-radius: 12px;
+    box-shadow: var(--dp01);
+}
+
+.product-description h3 {
+    margin-top: 0;
+    color: var(--on-surface);
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.product-specs {
+    padding: 16px;
+    background-color: var(--surface);
+    border-radius: 12px;
+    box-shadow: var(--dp01);
+}
+
+.product-specs h3 {
+    margin-top: 0;
+    color: var(--on-surface);
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--outline-variant);
+}
+
+.spec-name {
+    color: var(--on-surface-variant);
+}
+
+.spec-value {
+    font-weight: 500;
+    color: var(--on-surface);
+}
+
+.spec-value-id {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-id-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--on-surface-variant);
+    font-size: 1rem;
+    transition: color var(--transition-short);
+}
+
+.copy-id-btn:hover {
+    color: var(--primary);
+}
+
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background-color: var(--surface);
+    border-radius: 12px;
+    box-shadow: var(--dp01);
+}
+
+.product-actions .btn {
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.wishlist-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Адаптивность для мелких экранов */
+@media (max-width: 767px) {
+    .product-section {
+        padding: 60px 0 20px;
+    }
+
+    .product-title {
+        font-size: 1.5rem;
+    }
+
+    .product-price {
+        font-size: 1.3rem;
+    }
+
+    .product-main-image {
+        max-width: 300px;
+    }
+
+    .product-thumbnails {
+        max-width: 300px;
+    }
+}
+
+/* Стили для кнопок ID и Поделиться */
+.spec-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: 8px;
+}
+
+.copy-id-btn,
+.share-link-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--on-surface-variant);
+    font-size: 1rem;
+    transition: color var(--transition-short);
+    padding: 4px;
+}
+
+.copy-id-btn:hover,
+.share-link-btn:hover {
+    color: var(--primary);
+}

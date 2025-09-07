@@ -2465,3 +2465,141 @@ body.loaded .product-card {
         font-size: 1rem;
     }
 }
+
+/* Стили для скрытия рекламы */
+[data-adblock-hidden="true"] {
+    display: none !important;
+}
+
+/* Стили для обхода noscript */
+.noscript-bypass {
+    display: none !important;
+}
+
+/* Адаптивность для мелких экранов */
+@media (max-width: 576px) {
+    /* Хeder */
+    .header-content {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .desktop-nav {
+        display: none !important;
+    }
+
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+
+    /* Карточки товаров */
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .product-card {
+        margin: 0 auto;
+    }
+
+    /* Корзина */
+    .cart-overlay {
+        padding: 0;
+    }
+
+    .cart-container {
+        border-radius: 0;
+        max-height: 100vh;
+    }
+
+    /* Футер */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+/* Адаптивность для средних экранов */
+@media (min-width: 577px) and (max-width: 767px) {
+    /* Карточки товаров */
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    /* Корзина */
+    .cart-container {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+/* Стили для кнопок в карточках товаров */
+.product-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.add-to-cart,
+.view-product {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-short);
+    font-weight: 500;
+    text-decoration: none;
+    min-height: 40px;
+}
+
+.add-to-cart {
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+.add-to-cart:hover {
+    background-color: var(--primary-dark);
+}
+
+.view-product {
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+}
+
+.view-product:hover {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+}
+
+.wishlist-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--surface-variant);
+    color: var(--on-surface-variant);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-short);
+    flex-shrink: 0;
+}
+
+.wishlist-btn:hover {
+    background-color: var(--surface-container-highest);
+}
+
+.wishlist-btn.active {
+    color: var(--error);
+    background-color: rgba(211, 47, 47, 0.1);
+}
+
+.wishlist-btn i {
+    font-size: 1rem;
+}

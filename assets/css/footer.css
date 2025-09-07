@@ -1,0 +1,93 @@
+/* Footer */
+.footer {
+    background-color: var(--surface-variant);
+    padding: var(--spacing-xxl) 0 var(--spacing-lg);
+    color: var(--on-surface-variant);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer-section h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--on-surface);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-section ul li a {
+    color: var(--on-surface-variant);
+    text-decoration: none;
+    transition: var(--transition-short);
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--outline-variant);
+}
+
+/* Стили для логотипа в футере */
+.footer-section .logo-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-section .logo-image {
+    width: 100%;
+    height: 100%;
+}
+
+/* Стили для социальных ссылок в футере */
+.footer-section .social-links {
+    margin-top: var(--spacing-lg);
+}
+
+.footer-section .social-link {
+    background-color: transparent;
+    border: 2px solid var(--outline-variant);
+    width: 45px;
+    height: 45px;
+}
+
+.footer-section .social-link:hover {
+    background-color: var(--surface);
+    border-color: var(--primary);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.footer-section .telegram-link {
+    background: linear-gradient(135deg, #0088cc, #00a8e8);
+    border: none;
+}
+
+.footer-section .telegram-link:hover {
+    background: linear-gradient(135deg, #0077b5, #0099d8);
+    border: none;
+}
+
+/* Адаптивность для футера */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    .social-links {
+        justify-content: center;
+    }
+}

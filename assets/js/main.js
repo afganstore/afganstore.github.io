@@ -3,6 +3,12 @@ function setTheme(theme) {
   document.body.classList.remove("dark-theme", "light-theme");
   document.body.classList.add(`${theme}-theme`);
   localStorage.setItem("theme", theme);
+  const themeToggle = document.getElementById("theme-toggle");
+  if (theme === "dark") {
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  }
 }
 
 function toggleTheme() {
@@ -10,6 +16,26 @@ function toggleTheme() {
   const newTheme = currentTheme === "light" ? "dark" : "light";
   setTheme(newTheme);
 }
+
+// Переключение мобильного меню
+function toggleMobileMenu() {
+  const mobileNav = document.querySelector(".mobile-nav");
+  if (!mobileNav) return;
+  mobileNav.classList.toggle("active");
+  if (mobileNav.classList.contains("active")) {
+    mobileNav.style.maxHeight = mobileNav.scrollHeight + "px";
+  } else {
+    mobileNav.style.maxHeight = "0";
+  }
+}
+
+// Закрытие мобильного меню при клике на ссылку
+document.querySelectorAll(".mobile-nav a").forEach((link) => {
+  link.addEventListener("click", function () {
+    document.querySelector(".mobile-nav").classList.remove("active");
+    document.querySelector(".mobile-nav").style.maxHeight = "0";
+  });
+});
 
 // Проверка видимости мобильного меню
 function checkMobileMenuVisibility() {
@@ -31,16 +57,12 @@ function checkMobileMenuVisibility() {
   }
 }
 
-// Переключение мобильного меню
-function toggleMobileMenu() {
-  const mobileNav = document.querySelector(".mobile-nav");
-  if (!mobileNav) return;
-  mobileNav.classList.toggle("active");
-  if (mobileNav.classList.contains("active")) {
-    mobileNav.style.maxHeight = mobileNav.scrollHeight + "px";
-  } else {
-    mobileNav.style.maxHeight = "0";
-  }
+// Плавный скролл к началу страницы
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 }
 
 // Плавный скролл к фильтрам с открытием раздела "Избранное"
@@ -52,7 +74,6 @@ function scrollToWishlist() {
       behavior: "smooth",
     });
 
-    // Открываем фильтр "Избранное" после скролла
     setTimeout(() => {
       const wishlistButton = document.querySelector(
         '.filter-btn[data-filter="wishlist"]',
@@ -64,8 +85,50 @@ function scrollToWishlist() {
   }
 }
 
+// Установка OpenGraph мета-тегов
+function setOpenGraphTags(config) {
+  if (!config) return;
+
+  document
+    .querySelector('meta[property="og:title"]')
+    ?.setAttribute("content", config.title);
+  document
+    .querySelector('meta[property="og:description"]')
+    ?.setAttribute("content", config.description);
+  document
+    .querySelector('meta[property="og:url"]')
+    ?.setAttribute(
+      "content",
+      window.siteConfig.baseUrl + window.location.pathname,
+    );
+  document
+    .querySelector('meta[property="og:image"]')
+    ?.setAttribute("content", config.image);
+  document
+    .querySelector('meta[property="og:type"]')
+    ?.setAttribute("content", config.type);
+  document
+    .querySelector('meta[property="og:site_name"]')
+    ?.setAttribute("content", config.site_name);
+
+  document
+    .querySelector('meta[name="twitter:title"]')
+    ?.setAttribute("content", config.title);
+  document
+    .querySelector('meta[name="twitter:description"]')
+    ?.setAttribute("content", config.description);
+  document
+    .querySelector('meta[name="twitter:image"]')
+    ?.setAttribute("content", config.image);
+}
+
 // Инициализация
 document.addEventListener("DOMContentLoaded", function () {
+  // Установка OpenGraph мета-тегов
+  if (window.siteConfig?.openGraph?.default) {
+    setOpenGraphTags(window.siteConfig.openGraph.default);
+  }
+
   // Устанавливаем тему
   const savedTheme = localStorage.getItem("theme") || "light";
   setTheme(savedTheme);
@@ -74,16 +137,30 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("theme-toggle")
     ?.addEventListener("click", toggleTheme);
-  document.getElementById("cart-toggle")?.addEventListener("click", openCart);
-  document.getElementById("close-cart")?.addEventListener("click", closeCart);
+  document
+    .getElementById("theme-toggle")
+    .addEventListener("click", toggleTheme);
+  document.getElementById("cart-toggle").addEventListener("click", openCart);
+  document.getElementById("close-cart").addEventListener("click", closeCart);
   document
     .querySelector(".mobile-menu-toggle")
-    ?.addEventListener("click", toggleMobileMenu);
+    .addEventListener("click", toggleMobileMenu);
 
   // Кнопка "Избранное" в хедере
   document
     .getElementById("wishlist-toggle")
     ?.addEventListener("click", scrollToWishlist);
+
+  // Логотип и заголовок для скролла вверх
+  const logoIcon = document.querySelector(".logo-icon");
+  const logoText = document.querySelector(".logo h1");
+  if (logoIcon) logoIcon.addEventListener("click", scrollToTop);
+  if (logoText) logoText.addEventListener("click", scrollToTop);
+
+  // Инициализация адблока
+  if (typeof initAdBlock === "function") {
+    initAdBlock();
+  }
 
   // Обработка формы обратной связи
   const contactForm = document.getElementById("contact-form");

@@ -1,0 +1,151 @@
+/* Contact Section */
+.contact {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--surface);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+}
+
+.contact-info h3 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--on-primary-container);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--surface-variant);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--on-surface);
+    text-decoration: none;
+    transition: var(--transition-short);
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, var(--primary), var(--tertiary));
+    color: var(--on-primary);
+    transform: translateY(-3px);
+}
+
+.contact-form {
+    background-color: var(--surface);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--dp02);
+}
+
+.contact-form h3 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--outline-variant);
+    border-radius: var(--radius-md);
+    background-color: transparent;
+    color: var(--on-surface);
+    font-size: 1rem;
+    transition: var(--transition-short);
+}
+
+.input-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.input-group label {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    background-color: var(--surface);
+    padding: 0 var(--spacing-sm);
+    color: var(--on-surface-variant);
+    transition: var(--transition-short);
+    pointer-events: none;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: var(--spacing-sm);
+    font-size: 0.8rem;
+    color: var(--primary);
+}
+
+/* Специфичные стили для Telegram */
+.telegram-link {
+    background: linear-gradient(135deg, #0088cc, #00a8e8);
+    color: white;
+}
+
+.telegram-link:hover {
+    background: linear-gradient(135deg, #0077b5, #0099d8);
+    color: white;
+    box-shadow: 0 6px 16px rgba(0, 136, 204, 0.4);
+}
+
+/* Улучшаем внешний вид социальных иконок */
+.social-link {
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивность для контактов */
+@media (max-width: 992px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    .social-links {
+        justify-content: center;
+    }
+}

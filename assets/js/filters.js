@@ -52,9 +52,13 @@ window.loadProducts = function () {
         <div class="product-actions">
           <button class="add-to-cart btn btn-primary" data-id="${product.id}">
             <i class="fas fa-shopping-cart"></i>
-            <span>${translations[currentLang].button_add_to_cart}</span>
+            <span>${translations[currentLang]?.button_add_to_cart || "В корзину"}</span>
           </button>
-          <button class="wishlist ${isInWishlist ? "active" : ""}" data-id="${product.id}">
+          <a href="productView.html?id=${product.id}" class="view-product btn btn-secondary">
+            <i class="fas fa-info-circle"></i>
+            <span>${translations[currentLang]?.button_view_product || "О продукте"}</span>
+          </a>
+          <button class="wishlist-btn ${isInWishlist ? "active" : ""}" data-id="${product.id}">
             <i class="${isInWishlist ? "fas" : "far"} fa-heart"></i>
           </button>
         </div>
@@ -67,6 +71,7 @@ window.loadProducts = function () {
       productCard.style.transform = "translateY(0)";
     }, index * 100);
   });
+
   // Обработчики кнопок
   document.querySelectorAll(".add-to-cart").forEach((btn) => {
     btn.addEventListener("click", function () {
@@ -74,7 +79,8 @@ window.loadProducts = function () {
       addToCart(productId);
     });
   });
-  document.querySelectorAll(".wishlist").forEach((btn) => {
+
+  document.querySelectorAll(".wishlist-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
       const productId = parseInt(this.dataset.id);
       toggleWishlist(productId, this);
