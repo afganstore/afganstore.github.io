@@ -1,4 +1,4 @@
-# AFGAN Store 2.0# AFGAN Store 2.0![](images/favicon.png)
+# AFGAN Store 2.0
 Наш ~~рофельный~~ магазин.
 Предложка/поддержка - tg [@afganstore_bot](https://t.me/afganstore_bot)
 Старая версия - [GH](https://github.com/afganstore/old/)
