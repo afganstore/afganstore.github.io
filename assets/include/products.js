@@ -5,6 +5,7 @@ const categories = {
   mi: "Xiaomi",
   covers: "Чехлы",
   another: "Другое",
+  accessories: "Аксессуары",
 };
 
 const products = [
@@ -161,5 +162,13 @@ const products = [
     price: 100,
     image: "pixelos.jpeg",
     category: "another",
+  },
+  {
+    "id": 20,
+    "name": "Programming Socks (чулки)",
+    "description": "Яркие полосатые чулки, ставшие мемом среди программистов. Считается, что они повышают продуктивность и уровень синтаксического сахара в коде. Предложено @vyto4ka",
+    "price": "999",
+    "image": "vso.jpg",
+    "category": "accessories"
   },
 ];
