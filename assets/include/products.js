@@ -178,5 +178,5 @@ const products = [
     "price": "1",
     "image": "govnoed.png",
     "category": "accessories"
-  },
+  }
 ];
