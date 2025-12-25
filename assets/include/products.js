@@ -171,4 +171,12 @@ const products = [
     "image": "vso.jpg",
     "category": "accessories"
   },
+  {
+    "id": 21,
+    "name": "Shpak",
+    "description": "никому не нужный долбоеб",
+    "price": "1",
+    "image": "govnoed.png",
+    "category": "accessories"
+  },
 ];
