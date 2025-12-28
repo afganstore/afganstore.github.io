@@ -99,7 +99,7 @@ function filterProducts(filter) {
         card.style.transform = "translateY(0)";
       }, 50);
     } else if (filter === "wishlist") {
-      const productId = parseInt(card.querySelector(".wishlist").dataset.id);
+      const productId = parseInt(card.querySelector(".wishlist-btn").dataset.id);
       if (wishlist.includes(productId)) {
         card.style.display = "block";
         setTimeout(() => {
