@@ -28,7 +28,7 @@ window.siteConfig = {
   // Конфигурация адблока
   adBlock: {
     // Адблок всегда включен
-    enabled: true,
+    enabled: false,
 
     // Селекторы элементов, которые будут блокироваться
     blockedSelectors: [
