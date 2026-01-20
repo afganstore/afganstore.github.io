@@ -1,7 +1,9 @@
 // Применение адблока
 function applyAdBlock() {
-  const isEnabled = window.adBlockConfig.enabled;
-  const selectors = window.adBlockConfig.blockedSelectors.join(", ");
+  // Обращаемся к правильному пути в window.siteConfig
+  const config = window.siteConfig.adBlock;
+  const isEnabled = config.enabled;
+  const selectors = config.blockedSelectors.join(", ");
 
   const adElements = document.querySelectorAll(selectors);
 
@@ -13,7 +15,7 @@ function applyAdBlock() {
   });
 
   if (isEnabled) {
-    console.log(window.adBlockConfig.blockMessage);
+    console.log(config.blockMessage);
   }
 }
 
@@ -31,10 +33,12 @@ function bypassNoscript() {
 
 // Инициализация адблока
 function initAdBlock() {
+  const config = window.siteConfig.adBlock;
+  
   applyAdBlock();
 
   // Обход для noscript
-  if (window.adBlockConfig.noscriptBypass) {
+  if (config.noscriptBypass) {
     bypassNoscript();
   }
 
@@ -44,8 +48,9 @@ function initAdBlock() {
 
 // Инициализация при загрузке страницы
 document.addEventListener("DOMContentLoaded", function () {
-  if (!window.adBlockConfig) {
-    console.error("AdBlock config not found!");
+  // Проверка существования всей цепочки конфига
+  if (!window.siteConfig || !window.siteConfig.adBlock) {
+    console.error("AdBlock config not found in window.siteConfig!");
     return;
   }
 
