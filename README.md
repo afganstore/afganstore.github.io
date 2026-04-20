@@ -1,6 +1,6 @@
 # AFGAN Store 2.0
  - Наш ~~рофельный~~ магазин.
- - Предложка/поддержка - tg [@afganstore_bot](https://t.me/afganstore_bot)
+ - Предложка/поддержка - tg [@afganstore_bot](https://t.me/afganstoresupportbot)
  - Старая версия - [GH](https://github.com/afganstore/old/)
 
 ## Created by @esha5minutes
